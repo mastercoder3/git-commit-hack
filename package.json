@@ -23,5 +23,8 @@
     "express": "^4.18.2",
     "moment": "^2.29.4",
     "random-sentence": "^1.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
