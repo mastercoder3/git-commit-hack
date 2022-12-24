@@ -42,7 +42,7 @@ const runCommands = async (array) => {
     const randomNumberInRange = 4 + Math.random() * (7 - 4);
 
     for (let i = 0; i < randomNumberInRange; i++) {
-        const sentenceToAppend = randomSentence({ min: 2, max: 9 });
+        const sentenceToAppend = randomSentence({ min: 0, max: 9 });
         sentences.push(sentenceToAppend);
     }
 
