@@ -39,10 +39,10 @@ const runCommands = async (array) => {
 
     const sentences = [];
 
-    const randomNumberInRange = 4 + Math.random() * (7 - 4);
+    const randomNumberInRange = 1 + Math.random() * (7 - 1);
 
     for (let i = 0; i < randomNumberInRange; i++) {
-        const sentenceToAppend = randomSentence({ min: 0, max: 12 });
+        const sentenceToAppend = randomSentence({ min: 1, max: 8 });
         sentences.push(sentenceToAppend);
     }
 
