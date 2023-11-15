@@ -1,0 +1,19 @@
+{
+  "name": "git-commit-hack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mastercoder3/git-commit-hack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mastercoder3/git-commit-hack/issues"
+  },
+  "homepage": "https://github.com/mastercoder3/git-commit-hack#readme"
+}
