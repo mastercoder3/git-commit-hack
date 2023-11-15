@@ -22,19 +22,30 @@ const appendToFile = (msg) => {
 
 const bashScriptPath = './gitScript.sh';
 
-sentences?.map(async (data, index) => {
-    appendToFile(data);
-    // Execute the Bash script
-    const { stdout: result1 } = await execPromise(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`);
-    // exec(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`, (err, stdout, stderr) => {
-    //     if (err) {
-    //         console.error(`Error running the Bash script: ${stderr}`);
-    //         return;
-    //     }
+const runCommands = async (array) =>{
+    for(let i =0; i < array.length; i++){
+        appendToFile(array[i]);
+        // Execute the Bash script
+        const { stdout: result } = await execPromise(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${i + 1}"`);
+        console.log(result)
+    }
+}
 
-    //     console.log('Git add and commit successful!');
-    // });
-})
+runCommands(sentences);
+
+// sentences?.map(async (data, index) => {
+//     appendToFile(data);
+//     // Execute the Bash script
+//     const { stdout: result1 } = await execPromise(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`);
+//     // exec(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`, (err, stdout, stderr) => {
+//     //     if (err) {
+//     //         console.error(`Error running the Bash script: ${stderr}`);
+//     //         return;
+//     //     }
+
+//     //     console.log('Git add and commit successful!');
+//     // });
+// })
 
 
 console.log(sentences);
