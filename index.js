@@ -37,9 +37,7 @@ const runCommands = async (array) => {
 
 // console.log('Next Day Date:', nextDayDate.format('YYYY-MM-DD'));
 
-
-app.get('/run', async (req, res) => {
-
+const execution = async (res) => {
     const sentences = [];
 
     const randomNumberInRange = 4 + Math.random() * (7 - 4);
@@ -58,9 +56,16 @@ app.get('/run', async (req, res) => {
     // Get the next day's date
     const currentDate = moment();
     const nextDayDate = currentDate.add(1, 'days');
+    if(res)
     res.send({date: nextDayDate.format('YYYY-MM-DD')})
+}
+
+
+app.get('/run', async (req, res) => {
+    await execution(res);
 });
 
 app.listen(4500, () => {
     console.log('Server running on PORT 4500')
+    execution();
 })
