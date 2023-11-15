@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mastercoder3/git-commit-hack#readme",
   "dependencies": {
+    "moment": "^2.29.4",
     "random-sentence": "^1.0.4"
   }
 }

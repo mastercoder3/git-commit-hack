@@ -3,6 +3,8 @@ const { exec } = require('child_process');
 const randomSentence = require('random-sentence');
 const util = require('util');
 const execPromise = util.promisify(exec);
+const moment = require('moment');
+
 
 // File path to the text file
 const filePath = './commit.txt';
@@ -33,19 +35,8 @@ const runCommands = async (array) =>{
 
 runCommands(sentences);
 
-// sentences?.map(async (data, index) => {
-//     appendToFile(data);
-//     // Execute the Bash script
-//     const { stdout: result1 } = await execPromise(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`);
-//     // exec(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`, (err, stdout, stderr) => {
-//     //     if (err) {
-//     //         console.error(`Error running the Bash script: ${stderr}`);
-//     //         return;
-//     //     }
+const currentDate = moment();
 
-//     //     console.log('Git add and commit successful!');
-//     // });
-// })
-
-
-console.log(sentences);
+// Get the next day's date
+const nextDayDate = currentDate.add(1, 'days');
+console.log('Next Day Date:', nextDayDate.format('YYYY-MM-DD'));
