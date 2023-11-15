@@ -4,15 +4,15 @@ const randomSentence = require('random-sentence');
 const util = require('util');
 const execPromise = util.promisify(exec);
 const moment = require('moment');
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+// const express = require('express');
+// const cors = require('cors');
+// const bodyParser = require('body-parser');
 
-const app = express();
+// const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cors());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // File path to the text file
