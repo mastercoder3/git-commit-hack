@@ -1,6 +1,8 @@
 const fs = require('fs');
 const { exec } = require('child_process');
 const randomSentence = require('random-sentence');
+const util = require('util');
+const execPromise = util.promisify(exec);
 
 // File path to the text file
 const filePath = './commit.txt';
@@ -20,17 +22,18 @@ const appendToFile = (msg) => {
 
 const bashScriptPath = './gitScript.sh';
 
-sentences?.map((data, index) => {
+sentences?.map(async (data, index) => {
     appendToFile(data);
     // Execute the Bash script
-    exec(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`, (err, stdout, stderr) => {
-        if (err) {
-            console.error(`Error running the Bash script: ${stderr}`);
-            return;
-        }
+    const { stdout: result1 } = await execPromise(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`);
+    // exec(`bash ${bashScriptPath} "${new Date().toISOString().split("T")[0]} - ${index + 1}"`, (err, stdout, stderr) => {
+    //     if (err) {
+    //         console.error(`Error running the Bash script: ${stderr}`);
+    //         return;
+    //     }
 
-        console.log('Git add and commit successful!');
-    });
+    //     console.log('Git add and commit successful!');
+    // });
 })
 
 

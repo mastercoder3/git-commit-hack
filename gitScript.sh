@@ -4,7 +4,7 @@
 textVar=$1
 
 # Git add
-git add .
+#git add .
 
 # Git commit
-git commit -m "Commit for $myVariable"
+git commit -am "Commit for $textVar"
