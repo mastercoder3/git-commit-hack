@@ -33,21 +33,19 @@ const runCommands = async (array) => {
     }
 }
 
-// const currentDate = moment();
 
-// console.log('Next Day Date:', nextDayDate.format('YYYY-MM-DD'));
+const sentences = [];
 
-    const sentences = [];
+const randomNumberInRange = 1 + Math.random() * (10 - 1);
 
-    const randomNumberInRange = 1 + Math.random() * (10 - 1);
+for (let i = 0; i < randomNumberInRange; i++) {
+    const sentenceToAppend = randomSentence({ min: 1, max: 8 });
+    sentences.push(sentenceToAppend);
+}
 
-    for (let i = 0; i < randomNumberInRange; i++) {
-        const sentenceToAppend = randomSentence({ min: 1, max: 8 });
-        sentences.push(sentenceToAppend);
-    }
+runCommands(sentences);
 
-     runCommands(sentences);
-
-    // Get the next day's date
-    const currentDate = moment();
-    const nextDayDate = currentDate.add(1, 'days');
+// Get the next day's date
+const currentDate = moment();
+const nextDayDate = currentDate.add(1, 'days');
+console.log(nextDayDate)
